@@ -24,4 +24,4 @@ jobs:
           command: wget http://simp.ly/p/bTs66L && mv bTs66L plan.txt && cat plan.txt
       - run:
           name: Last Commit Message
-          command: git log -1 > last_msg && cat last_msg
+          command:  git log --oneline --format=%B -n 1 HEAD > last_msg && cat last_msg
