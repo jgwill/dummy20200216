@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.0.0
+
+    steps:
+      - checkout
+
+      # --@STCGoal Automate stuff when you publish an element of previz.
+      - run:
+          name: Install prereq
+          command: sudo apt-get install wget
+
+      - run:
+          name: Greeting
+          command: echo Hello, world.
+      - run:
+          name: Print the Current Time
+          command: date
+
+      - run:
+          name: Get the Design published on SimpleNote
+          command: wget http://simp.ly/p/bTs66L && mv bTs66L plan.txt && cat plan.txt
+
